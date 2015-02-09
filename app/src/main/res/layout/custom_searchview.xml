@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/customSearchView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"></RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="9.5"
+            android:background="@android:color/white">
+
+            <LinearLayout
+                android:id="@+id/innerRoundedRect"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/white"
+                android:visibility="visible"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/editContentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="center_vertical"
+                    >
+
+                    <ImageView
+                        android:id="@+id/editSearchIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/web_search_icon_v70" />
+
+                    <EditText
+                        android:id="@+id/searchEditTextDummy"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"></EditText>
+
+                    <RelativeLayout
+                        android:id="@+id/editTextLayout"
+                        android:layout_width="290dp"
+                        android:layout_toRightOf="@id/editSearchIcon"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp">
+
+                        <!--This editText will be replace by custom editText-->
+                        <!--in CustomSearchViewHandler. Adding any attr here -->
+                        <!--should add in clone function as well-->
+                        <EditText
+                            android:id="@+id/searchEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@null"
+                            android:cursorVisible="true"
+                            android:focusable="true"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text|textNoSuggestions"
+                            android:paddingLeft="5dp" />
+
+
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/searchCloseBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="5dp"
+
+                        android:src="@drawable/x_close_gray_v70" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/queryHintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                android:gravity="center"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/queryHintContentLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/hintSearchIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/web_search_icon_v70" />
+
+                    <TextView
+                        android:id="@+id/queryHintTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/hintSearchIcon"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/queryHint"
+                        android:textColor="@color/charcoal_gray"
+                        android:textSize="20dp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"></RelativeLayout>
+
+    </LinearLayout>
+
+    <!--line-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@id/mainLayout"
+        android:background="#d3d3d3" />
+
+    <ImageView
+        android:id="@+id/maskView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mainLayout"
+        android:alpha="0"
+        android:background="@android:color/black" />
+
+</RelativeLayout>
